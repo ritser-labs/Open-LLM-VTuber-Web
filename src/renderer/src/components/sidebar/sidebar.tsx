@@ -11,6 +11,9 @@ import BottomTab from './bottom-tab';
 import HistoryDrawer from './history-drawer';
 import { useSidebar } from '@/hooks/sidebar/use-sidebar';
 import GroupDrawer from './group-drawer';
+import LoginButton from '../auth/login-button';
+import LogoutButton from '../auth/logout-button';
+import Profile from '../auth/profile';
 
 // Type definitions
 interface SidebarProps {
@@ -42,7 +45,7 @@ const ToggleButton = memo(({ isCollapsed, onToggle }: {
 ToggleButton.displayName = 'ToggleButton';
 
 const HeaderButtons = memo(({ onSettingsOpen, onNewHistory }: HeaderButtonsProps) => (
-  <Box display="flex" gap={1}>
+  <Box display="flex" gap={1} alignItems="center">
     <Button onClick={onSettingsOpen}>
       <FiSettings />
     </Button>
@@ -62,6 +65,9 @@ const HeaderButtons = memo(({ onSettingsOpen, onNewHistory }: HeaderButtonsProps
     <Button onClick={onNewHistory}>
       <FiPlus />
     </Button>
+    <Profile />
+    <LoginButton />
+    <LogoutButton />
   </Box>
 ));
 
